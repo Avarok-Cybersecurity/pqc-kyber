@@ -1,4 +1,4 @@
-use pqc_kyber::*;
+use cosmian_kyber::*;
 
 // Kyber struct uake and ake functions
 #[test]

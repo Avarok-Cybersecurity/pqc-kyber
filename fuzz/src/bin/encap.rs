@@ -1,5 +1,5 @@
 use honggfuzz::fuzz;
-use pqc_kyber::*;
+use cosmian_kyber::*;
 use rand_xoshiro::rand_core::{SeedableRng, RngCore};
 use rand_xoshiro::Xoshiro256Plus;
 

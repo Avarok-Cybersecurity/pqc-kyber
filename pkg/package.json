@@ -1,25 +1,25 @@
 {
-  "name": "pqc-kyber",
+  "name": "cosmian_kyber",
   "collaborators": [
     "Mitchell Berry <foss@mitchellberry.com>"
   ],
-  "description": "The post-quantum Kyber kex exchange algorithm, packaged as a Wasm binary",
-  "version": "0.3.4",
+  "description": "A rust implementation of the post-quantum Kyber KEM algorithm. This is a fork of the `pqc_kyber` crate",
+  "version": "0.1.0",
   "license": "MIT/Apache-2.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/Argyle-Software/kyber"
   },
   "files": [
-    "pqc_kyber_bg.wasm",
-    "pqc_kyber.js",
-    "pqc_kyber_bg.js",
-    "pqc_kyber.d.ts",
+    "cosmian_kyber_bg.wasm",
+    "cosmian_kyber.js",
+    "cosmian_kyber_bg.js",
+    "cosmian_kyber.d.ts",
     "LICENSE-MIT",
     "LICENSE-APACHE"
   ],
-  "module": "pqc_kyber.js",
-  "types": "pqc_kyber.d.ts",
+  "module": "cosmian_kyber.js",
+  "types": "cosmian_kyber.d.ts",
   "sideEffects": false,
   "keywords": [
     "kyber",

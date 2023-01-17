@@ -1,4 +1,4 @@
-use pqc_kyber::*;
+use cosmian_kyber::*;
 
 #[test]
 fn keypair_encap_decap_kem() {

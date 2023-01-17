@@ -1,4 +1,4 @@
-use pqc_kyber::*;
+use cosmian_kyber::*;
 
 fn main() -> Result<(), KyberError> {
     let mut rng = rand::thread_rng();

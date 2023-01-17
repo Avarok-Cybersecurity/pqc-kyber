@@ -1,4 +1,4 @@
-use pqc_kyber::{KYBER_90S, KYBER_K};
+use cosmian_kyber::{KYBER_90S, KYBER_K};
 use std::fs::File;
 use std::io::{prelude::*, BufReader};
 use std::path::PathBuf;

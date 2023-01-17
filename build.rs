@@ -18,13 +18,13 @@ fn main() {
 
                 for o in nasm.compile_objects().expect(
                     "
-          Compiling NASM files: 
+          Compiling NASM files:
           Ensure it is installed and in your path
           https://www.nasm.us/",
                 ) {
                     linker.object(o);
                 }
-                linker.compile("pqc_kyber");
+                linker.compile("cosmian_kyber");
             }
 
             #[cfg(not(feature = "nasm"))]
@@ -34,7 +34,7 @@ fn main() {
                 cc::Build::new()
                     .include(ROOT)
                     .files(paths)
-                    .compile("pqc_kyber");
+                    .compile("cosmian_kyber");
             }
         }
     }

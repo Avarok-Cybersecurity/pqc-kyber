@@ -3,7 +3,7 @@
 mod load;
 
 use load::*;
-use pqc_kyber::*;
+use cosmian_kyber::*;
 
 // Generate KAT keypairs from seeds.
 #[test]

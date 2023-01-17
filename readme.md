@@ -9,20 +9,20 @@
 [![Build Status](https://github.com/Argyle-Software/kyber/actions/workflows/kat.yml/badge.svg)](https://github.com/Argyle-Software/kyber/actions)
 [![Crates](https://img.shields.io/crates/v/pqc-kyber)](https://crates.io/crates/pqc-kyber)
 [![NPM](https://img.shields.io/npm/v/pqc-kyber)](https://www.npmjs.com/package/pqc-kyber)
-[![License](https://img.shields.io/crates/l/pqc_kyber)](https://github.com/Argyle-Software/kyber/blob/master/LICENSE-MIT)
+[![License](https://img.shields.io/crates/l/cosmian_kyber)](https://github.com/Argyle-Software/kyber/blob/master/LICENSE-MIT)
 
 A rust implementation of the Kyber algorithm, a KEM standardised by the NIST Post-Quantum Standardization Project.
 
 This library:
-* Is no_std compatible and needs no allocator, suitable for embedded devices. 
+* Is no_std compatible and needs no allocator, suitable for embedded devices.
 * Reference files contain no unsafe code and are written in pure rust.
-* On x86_64 platforms uses an avx2 optimized version by default, which includes some assembly code taken from the C repo. 
+* On x86_64 platforms uses an avx2 optimized version by default, which includes some assembly code taken from the C repo.
 * Compiles to WASM using wasm-bindgen and has a ready-to-use binary published on NPM.
 
 
 See the [**features**](#features) section for different options regarding security levels and modes of operation. The default security setting is kyber768.
 
-It is recommended to use Kyber in a hybrid system alongside a traditional key exchange algorithm such as X25519. 
+It is recommended to use Kyber in a hybrid system alongside a traditional key exchange algorithm such as X25519.
 
 Please also read the [**security considerations**](#security-considerations) before use.
 
@@ -36,13 +36,13 @@ In `Cargo.toml`:
 
 ```toml
 [dependencies]
-pqc_kyber = "0.3.0"
+cosmian_kyber = "0.1.0"
 ```
 
-## Usage 
+## Usage
 
 ```rust
-use pqc_kyber::*;
+use cosmian_kyber::*;
 ```
 
 For optimisations on x86 platforms enable the `avx2` feature and the following RUSTFLAGS:
@@ -51,7 +51,7 @@ For optimisations on x86 platforms enable the `avx2` feature and the following R
 export RUSTFLAGS="-C target-feature=+aes,+avx2,+sse2,+sse4.1,+bmi2,+popcnt"
 ```
 
-The higher level key exchange structs will be appropriate for most use-cases. 
+The higher level key exchange structs will be appropriate for most use-cases.
 
 ---
 
@@ -115,7 +115,7 @@ let keys_bob = keypair(&mut rng);
 // Alice encapsulates a shared secret using Bob's public key
 let (ciphertext, shared_secret_alice) = encapsulate(&keys_bob.public, &mut rng)?;
 
-// Bob decapsulates a shared secret using the ciphertext sent by Alice 
+// Bob decapsulates a shared secret using the ciphertext sent by Alice
 let shared_secret_bob = decapsulate(&ciphertext, &keys_bob.secret)?;
 
 assert_eq!(shared_secret_alice, shared_secret_bob);
@@ -138,7 +138,7 @@ If no security level is specified then kyber768 is used by default as recommende
 
 ```toml
 [dependencies]
-pqc_kyber = {version = "0.2.0", features = ["kyber512", "90s", "avx2"]}
+cosmian_kyber = {version = "0.2.0", features = ["kyber512", "90s", "avx2"]}
 ```
 
 
@@ -149,7 +149,7 @@ pqc_kyber = {version = "0.2.0", features = ["kyber512", "90s", "avx2"]}
 | 90s | Uses SHA2 and AES in counter mode as a replacement for SHAKE. This can provide hardware speedups in some cases. |
 | avx2 | On x86_64 platforms enable the optimized version. This flag is will cause a compile error on other architectures. |
 | wasm | For compiling to WASM targets|
-| nasm | Uses Netwide Assembler avx2 code instead of GAS for portability you will need a nasm compiler installed: https://www.nasm.us/ | 
+| nasm | Uses Netwide Assembler avx2 code instead of GAS for portability you will need a nasm compiler installed: https://www.nasm.us/ |
 | zeroize | This will zero out the key exchange structs on drop using the [zeroize](https://docs.rs/zeroize/latest/zeroize/) crate |
 | benchmarking |  Enables the criterion benchmarking suite |
 | std | Enable the standard library |
@@ -159,10 +159,10 @@ pqc_kyber = {version = "0.2.0", features = ["kyber512", "90s", "avx2"]}
 
 The [run_all_tests](tests/run_all_tests.sh) script will traverse all possible codepaths by running a matrix of the security levels, variants and crate features.
 
-Known Answer Tests require deterministic rng seeds, enable `kyber_kat` in `RUSTFLAGS`to use them. 
-Using this outside of `cargo test` will result in a compile-time error. 
-The test vector files are quite large, you will need to build them yourself from the C reference code. 
-There's a helper script to do this [here](./tests/KAT/build_kats.sh). 
+Known Answer Tests require deterministic rng seeds, enable `kyber_kat` in `RUSTFLAGS`to use them.
+Using this outside of `cargo test` will result in a compile-time error.
+The test vector files are quite large, you will need to build them yourself from the C reference code.
+There's a helper script to do this [here](./tests/KAT/build_kats.sh).
 
 ```bash
 # This example runs the basic tests for kyber768
@@ -188,7 +188,7 @@ You will need to use the `benchmarking` feature
 
 ## Fuzzing
 
-The fuzzing suite uses honggfuzz, installation and instructions are on the [fuzzing](./fuzz/readme.md) page. 
+The fuzzing suite uses honggfuzz, installation and instructions are on the [fuzzing](./fuzz/readme.md) page.
 
 ---
 
@@ -214,16 +214,16 @@ For example, using [wasm-pack](https://rustwasm.github.io/wasm-pack/installer/):
 wasm-pack build -- --features wasm
 ```
 
-Which will export the wasm, javascript and  typescript files into [./pkg/](./pkg/readme.md). 
+Which will export the wasm, javascript and  typescript files into [./pkg/](./pkg/readme.md).
 
-To compile a different variant into a separate folder: 
+To compile a different variant into a separate folder:
 ```shell
-wasm-pack build --out-dir pkg_kyber512/ -- --features "wasm kyber512" 
+wasm-pack build --out-dir pkg_kyber512/ -- --features "wasm kyber512"
 ```
 
 There is also a basic html demo in the [www](./www/readme.md) folder.
- 
-From the www folder run: 
+
+From the www folder run:
 
 ```shell
 npm run start
@@ -231,11 +231,11 @@ npm run start
 
 ---
 
-## Security Considerations 
+## Security Considerations
 
 While much care has been taken porting from the C reference codebase, this library has not undergone any third-party security auditing nor can any guarantees be made about the potential for underlying vulnerabilities in LWE cryptography or potential side-channel attacks arising from this implementation.
 
-Kyber is relatively new, it is advised to use it in a hybrid key exchange system alongside a traditional algorithm like X25519 rather than by itself. 
+Kyber is relatively new, it is advised to use it in a hybrid key exchange system alongside a traditional algorithm like X25519 rather than by itself.
 
 For further reading the IETF have a draft construction for hybrid key exchange in TLS 1.3:
 
@@ -253,7 +253,7 @@ Kyber is an IND-CCA2-secure key encapsulation mechanism (KEM), whose security is
 
 The official website: https://pq-crystals.org/kyber/
 
-Authors of the Kyber Algorithm: 
+Authors of the Kyber Algorithm:
 
 * Roberto Avanzi, ARM Limited (DE)
 * Joppe Bos, NXP Semiconductors (BE)
@@ -268,7 +268,7 @@ Authors of the Kyber Algorithm:
 
 ---
 
-### Contributing 
+### Contributing
 
 Contributions welcome. For pull requests create a feature fork and submit it to the development branch. More information is available on the [contributing page](./contributing.md)
 

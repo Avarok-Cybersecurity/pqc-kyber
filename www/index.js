@@ -1,4 +1,4 @@
-import * as kyber from "pqc_kyber";
+import * as kyber from "cosmian_kyber";
 
 const generateKeyButton = document.getElementById("generatekey");
 const encapButton = document.getElementById("encapsulate");
@@ -40,9 +40,9 @@ generateKeyButton.addEventListener("click", event => {
     pubKeyBox2.value = pubKeyBox.value;
     privKeyBox2.value = privKeyBox.value;
     // TODO: Add a base64 option
-    // pubKeyBox.value = Buffer.from(pubKey).toString('base64');    
+    // pubKeyBox.value = Buffer.from(pubKey).toString('base64');
 });
-    
+
 encapButton.addEventListener("click", event => {
     try {
         let encapsulated = kyber.encapsulate(hexToBytes(pubKeyBox2.value));
@@ -54,11 +54,11 @@ encapButton.addEventListener("click", event => {
         alert("Error Encapsulating");
     }
 });
-    
+
 decapButton.addEventListener("click", event => {
     try {
         let decapsulated = kyber.decapsulate(
-            hexToBytes(cipherTextBox2.value), 
+            hexToBytes(cipherTextBox2.value),
             hexToBytes(privKeyBox2.value)
         );
         sharedKeyBox2.value = toHexString(decapsulated);
@@ -78,7 +78,7 @@ decapButton.addEventListener("click", event => {
 // });
 
 checkButton.addEventListener("click", event => {
-   if (sharedKeyBox.value === sharedKeyBox2.value){ 
+   if (sharedKeyBox.value === sharedKeyBox2.value){
        alert("Shared Keys Match");
     }
     else {

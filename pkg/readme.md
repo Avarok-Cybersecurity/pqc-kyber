@@ -6,7 +6,7 @@
 
 A rust implementation of the post-quantum key exchange algorithm Kyber, packaged as a wasm binary.
 
-This version currently uses kyber764, equivalent to a 192 bit security level. To use different variants or enable 90's mode, check the [github instructions](https://github.com/Argyle-Software/kyber#webassembly) for how to compile it yourself.  
+This version currently uses kyber764, equivalent to a 192 bit security level. To use different variants or enable 90's mode, check the [github instructions](https://github.com/Argyle-Software/kyber#webassembly) for how to compile it yourself.
 
 ### Installation
 
@@ -17,7 +17,7 @@ npm -i pqc-kyber
 ### Usage
 
 ```js
-import * as kyber from "pqc_kyber";
+import * as kyber from "cosmian_kyber";
 
 // Generate Keypair
 let keys = kyber.keypair();
@@ -61,8 +61,8 @@ assert.equal(sharedSecretAlice.len(), kyber.Params.sharedSecretBytes)
 Will be raised if:
 
 
- * The ciphertext cannot be decapsulated with the private key 
- * Functions are given incorrectly sized byte arrays 
+ * The ciphertext cannot be decapsulated with the private key
+ * Functions are given incorrectly sized byte arrays
 
 Valid input sizes are all contained in the `kyber.Params` class.
 
@@ -81,7 +81,7 @@ Kyber is an IND-CCA2-secure key encapsulation mechanism (KEM), whose security is
 
 The official website: https://pq-crystals.org/kyber/
 
-Authors of the Kyber Algorithm: 
+Authors of the Kyber Algorithm:
 
 * Roberto Avanzi, ARM Limited (DE)
 * Joppe Bos, NXP Semiconductors (BE)

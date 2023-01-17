@@ -2,7 +2,7 @@
 
   <h1>Web Assembly Demo</h1>
 
-  <strong>A basic example of using the pqc_kyber npm module</strong> 
+  <strong>A basic example of using the cosmian_kyber npm module</strong>
 
 
 
@@ -11,7 +11,7 @@
 
 ### Installation
 
-From this folder: 
+From this folder:
 
 ```shell
 npm install
@@ -28,7 +28,7 @@ The demo is at [localhost:8080](localhost:8080)
 ### Library Usage
 
 ```js
-import * as kyber from "pqc_kyber";
+import * as kyber from "cosmian_kyber";
 
 // Generate Keypair
 let keys = kyber.keypair();
@@ -67,8 +67,8 @@ assert.equal(ciphertextBob.len(),  kyber.Params.ciphertextbytes);
 
 
 # Errors
-If the ciphertext cannot be decapsulated with the private key or the functions are 
-given incorrectly sized byte arrays an error will be raised 
+If the ciphertext cannot be decapsulated with the private key or the functions are
+given incorrectly sized byte arrays an error will be raised
 
 
 

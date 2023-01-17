@@ -1,4 +1,4 @@
-import * as wasm from './pqc_kyber_bg.wasm';
+import * as wasm from './cosmian_kyber_bg.wasm';
 
 const heap = new Array(32).fill(undefined);
 

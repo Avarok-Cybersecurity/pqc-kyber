@@ -29,7 +29,7 @@
 //! ```
 //!
 //! ```
-//! use pqc_kyber::*;
+//! use cosmian_kyber::*;
 //! ```
 //!
 //! The higher level structs will be appropriate for most use-cases.
@@ -37,7 +37,7 @@
 //!
 //! #### Unilaterally Authenticated Key Exchange
 //! ```
-//! # use pqc_kyber::*;
+//! # use cosmian_kyber::*;
 //! # fn main() -> Result<(),KyberError> {
 //! let mut rng = rand::thread_rng();
 //!
@@ -69,7 +69,7 @@
 //! Mutual authentication follows the same workflow but with additional keys passed to the functions:
 //!
 //! ```
-//! # use pqc_kyber::*;
+//! # use cosmian_kyber::*;
 //! # fn main() -> Result<(),KyberError> {
 //! # let mut rng = rand::thread_rng();
 //! let mut alice = Ake::new();
@@ -93,7 +93,7 @@
 //! ##### Key Encapsulation
 //! Lower level functions for using the Kyber algorithm directly.
 //! ```
-//! # use pqc_kyber::*;
+//! # use cosmian_kyber::*;
 //! # fn main() -> Result<(),KyberError> {
 //! # let mut rng = rand::thread_rng();
 //! // Generate Keypair
@@ -115,7 +115,7 @@
 //! * **InvalidInput** - One or more byte inputs to a function are incorrectly sized. A likely cause of
 //! this is two parties using different security levels while trying to negotiate a key exchange.
 //!
-//! * **Decapsulation** - The ciphertext was unable to be authenticated. The shared secret was not decapsulated  
+//! * **Decapsulation** - The ciphertext was unable to be authenticated. The shared secret was not decapsulated
 
 #![cfg_attr(not(feature = "std"), no_std)]
 #![allow(clippy::many_single_char_names)]
@@ -139,7 +139,7 @@ use reference::*;
 pub use reference::indcpa;
 
 #[cfg(feature = "wasm")]
-mod wasm;
+pub mod wasm;
 
 mod api;
 mod error;

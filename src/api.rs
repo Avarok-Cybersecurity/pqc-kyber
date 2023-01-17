@@ -10,7 +10,7 @@ use crate::{
 ///
 /// ### Example
 /// ```
-/// # use pqc_kyber::*;
+/// # use cosmian_kyber::*;
 /// # fn main() -> Result<(), KyberError> {
 /// let mut rng = rand::thread_rng();
 /// let keys = keypair(&mut rng);
@@ -31,7 +31,7 @@ where
 ///
 /// ### Example
 /// ```
-/// # use pqc_kyber::*;
+/// # use cosmian_kyber::*;
 /// # fn main() -> Result<(), KyberError> {
 /// let mut rng = rand::thread_rng();
 /// let keys = keypair(&mut rng);
@@ -56,7 +56,7 @@ where
 ///
 /// ### Example
 /// ```
-/// # use pqc_kyber::*;
+/// # use cosmian_kyber::*;
 /// # fn main() -> Result<(), KyberError> {
 /// let mut rng = rand::thread_rng();
 /// let keys = keypair(&mut rng);
@@ -88,7 +88,7 @@ pub struct Keypair {
 impl Keypair {
     /// Securely generates a new keypair`
     /// ```
-    /// # use pqc_kyber::*;
+    /// # use cosmian_kyber::*;
     /// # fn main() -> Result<(), KyberError> {
     /// let mut rng = rand::thread_rng();
     /// let keys = Keypair::generate(&mut rng);

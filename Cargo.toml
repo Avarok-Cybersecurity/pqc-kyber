@@ -1,5 +1,5 @@
 [package]
-name = "pqc_kyber"
+name = "pqc_kyber_kyberslash"
 version = "0.7.1"
 authors = ["Mitchell Berry <foss@mitchellberry.com>"]
 edition = "2018"
